@@ -637,7 +637,7 @@
   </main>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwV3QpZ18gm9jidkF2psNWDnlj4KCL0AP7BKK6IZ4Lauz8gWzO-7kFP9XKNGhCk80Ihmw/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbx2_4pTbD9Gme17Ko5CwvAkhp1NxRjVB2PwdbvgIQwAX74-z6oNc9wugKVVn8yf4AapeQ/exec";
     const form = document.getElementById("regForm");
     const statusEl = document.getElementById("status");
     const submitBtn = document.getElementById("submitBtn");
@@ -646,6 +646,11 @@
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
+
+      if (!scriptURL || scriptURL.includes("https://script.google.com/macros/s/AKfycbx2_4pTbD9Gme17Ko5CwvAkhp1NxRjVB2PwdbvgIQwAX74-z6oNc9wugKVVn8yf4AapeQ/exec")) {
+        statusEl.textContent = "Add your Google Apps Script Web App URL first, then try again.";
+        return;
+      }
 
       const formData = {
         parentName: form.parentName.value.trim(),
@@ -662,20 +667,20 @@
       statusEl.textContent = "Sending registration...";
 
       try {
-        const response = await fetch(scriptURL, {
+        await fetch(scriptURL, {
           method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
           body: JSON.stringify(formData)
         });
-
-        if (!response.ok) {
-          throw new Error("Submission failed");
-        }
 
         formWrap.style.display = "none";
         successMessage.style.display = "block";
         window.scrollTo({ top: 0, behavior: "smooth" });
       } catch (error) {
-        statusEl.textContent = "Something broke while submitting. Check the Apps Script URL and try again.";
+        statusEl.textContent = "Submission failed. Make sure your Apps Script is deployed as a Web App and that the URL is correct.";
         submitBtn.disabled = false;
         submitBtn.textContent = "Register Now";
       }
