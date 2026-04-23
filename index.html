@@ -647,7 +647,7 @@
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      if (!scriptURL || scriptURL.includes("https://script.google.com/macros/s/AKfycbxC-QiHskSHlwi-fSIg4SXFkcK9yzIg2KJDCzKybrgiJa7gJOpDeIRPX9rCQ78haOBCog/exec")) {
+           if (!scriptURL || scriptURL === "") {
         statusEl.textContent = "Add your Google Apps Script Web App URL first, then try again.";
         return;
       }
