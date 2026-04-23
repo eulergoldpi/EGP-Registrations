@@ -1,0 +1,48 @@
+<form id="regForm">
+  <input type="text" name="parentName" placeholder="Parent Full Name" required>
+  <input type="text" name="childName" placeholder="Child Full Name" required>
+  <input type="text" name="grade" placeholder="Grade" required>
+  <input type="number" name="age" placeholder="Age" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="tel" name="phone" placeholder="Phone Number" required>
+
+  <label>
+    <input type="checkbox" name="consent" required>
+    I agree to the terms and understand a physical consent form is required.
+  </label>
+
+  <button type="submit">Register</button>
+</form>
+
+<div id="successMessage" style="display:none;">
+  <h2>✅ You're Registered!</h2>
+  <p>We'll contact you soon.</p>
+</div>
+
+<script>
+const scriptURL = "PASTE_YOUR_WEB_APP_URL_HERE";
+
+document.getElementById("regForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = {
+    parentName: this.parentName.value,
+    childName: this.childName.value,
+    grade: this.grade.value,
+    age: this.age.value,
+    email: this.email.value,
+    phone: this.phone.value,
+    consent: this.consent.checked
+  };
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(formData)
+  })
+  .then(res => {
+    document.getElementById("regForm").style.display = "none";
+    document.getElementById("successMessage").style.display = "block";
+  })
+  .catch(err => alert("Error submitting form"));
+});
+</script>
