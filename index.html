@@ -496,11 +496,6 @@
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      if (!scriptURL || scriptURL === "" || scriptURL.includes("YOUR-REAL-DEPLOYMENT-ID")) {
-        statusEl.textContent = "Add your Google Apps Script Web App URL first, then try again.";
-        return;
-      }
-
       const formData = {
         parentName: form.parentName.value.trim(),
         childName: form.childName.value.trim(),
