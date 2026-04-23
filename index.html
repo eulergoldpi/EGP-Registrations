@@ -585,7 +585,7 @@
 
             <div class="field">
               <label for="age">Age</label>
-              <input id="age" name="age" type="number" min="8" max="13" placeholder="Age" required />
+              <input id="age" name="age" type="number" placeholder="Age" required />
             </div>
 
             <div class="field">
@@ -637,7 +637,7 @@
   </main>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbz0oQPTx2CSKpN0ju0rMIRC0eCqwdMipudOeEYmwa1Is0UYLbqjTekt9c6Dt_jqKntX7g/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxC-QiHskSHlwi-fSIg4SXFkcK9yzIg2KJDCzKybrgiJa7gJOpDeIRPX9rCQ78haOBCog/exec";
     const form = document.getElementById("regForm");
     const statusEl = document.getElementById("status");
     const submitBtn = document.getElementById("submitBtn");
@@ -647,7 +647,7 @@
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      if (!scriptURL || scriptURL.includes("https://script.google.com/macros/s/AKfycbz0oQPTx2CSKpN0ju0rMIRC0eCqwdMipudOeEYmwa1Is0UYLbqjTekt9c6Dt_jqKntX7g/exec")) {
+      if (!scriptURL || scriptURL.includes("https://script.google.com/macros/s/AKfycbxC-QiHskSHlwi-fSIg4SXFkcK9yzIg2KJDCzKybrgiJa7gJOpDeIRPX9rCQ78haOBCog/exec")) {
         statusEl.textContent = "Add your Google Apps Script Web App URL first, then try again.";
         return;
       }
