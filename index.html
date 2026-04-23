@@ -637,7 +637,7 @@
   </main>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbx2_4pTbD9Gme17Ko5CwvAkhp1NxRjVB2PwdbvgIQwAX74-z6oNc9wugKVVn8yf4AapeQ/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbz0oQPTx2CSKpN0ju0rMIRC0eCqwdMipudOeEYmwa1Is0UYLbqjTekt9c6Dt_jqKntX7g/exec";
     const form = document.getElementById("regForm");
     const statusEl = document.getElementById("status");
     const submitBtn = document.getElementById("submitBtn");
@@ -647,7 +647,7 @@
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      if (!scriptURL || scriptURL.includes("https://script.google.com/macros/s/AKfycbx2_4pTbD9Gme17Ko5CwvAkhp1NxRjVB2PwdbvgIQwAX74-z6oNc9wugKVVn8yf4AapeQ/exec")) {
+      if (!scriptURL || scriptURL.includes("https://script.google.com/macros/s/AKfycbz0oQPTx2CSKpN0ju0rMIRC0eCqwdMipudOeEYmwa1Is0UYLbqjTekt9c6Dt_jqKntX7g/exec")) {
         statusEl.textContent = "Add your Google Apps Script Web App URL first, then try again.";
         return;
       }
